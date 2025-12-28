@@ -1,0 +1,336 @@
+/* RecentPosts.css - Slider Version */
+.recent-posts {
+  padding: 4rem 0;
+  background-color: var(--bg-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+  text-align: center;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  border-radius: 2px;
+}
+
+/* Slider Container */
+.recent-posts-slider {
+  position: relative;
+  margin: 0 -15px;
+}
+
+.slider-item {
+  padding: 0 15px;
+}
+
+/* Post Cards */
+.recent-post-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px var(--shadow);
+  transition: all 0.3s ease;
+  height: 100%; /* ✅ ensures uniform height in slider */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--card-border);
+  min-height: 420px; /* ✅ set a minimum card height for uniform look */
+}
+
+.recent-post-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px var(--shadow-hover);
+  border-color: var(--accent-color);
+}
+
+.recent-post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.recent-post-card:hover .recent-post-image {
+  transform: scale(1.05);
+}
+
+.recent-post-image-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-primary);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.recent-post-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title truncation */
+.recent-post-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* ✅ show max 2 lines */
+  line-clamp: 2;           /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 3.5rem;      /* ✅ reserve space so all titles align */
+}
+
+.recent-post-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.recent-post-title a:hover {
+  color: var(--accent-color);
+}
+
+/* Excerpt truncation */
+.recent-post-excerpt {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex: 1;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* ✅ show max 3 lines */
+  line-clamp: 3;           /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 4.5rem;      /* ✅ consistent space for excerpt */
+}
+
+.recent-post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.recent-post-date {
+  font-weight: 500;
+}
+
+.recent-post-comments {
+  background: var(--accent-color);
+  color: var(--bg-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Custom Slider Arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: var(--card-bg);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.slider-arrow:hover {
+  background: var(--accent-color);
+  color: var(--bg-primary);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+}
+
+.slider-arrow-prev {
+  left: -25px;
+}
+
+.slider-arrow-next {
+  right: -25px;
+}
+
+.slider-arrow svg {
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.slider-arrow:hover svg {
+  color: var(--bg-primary);
+}
+
+/* Slider Dots */
+.recent-posts-slider .slick-dots {
+  bottom: -50px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.recent-posts-slider .slick-dots li {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+}
+
+.recent-posts-slider .slick-dots li button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-color);
+  border: none;
+  padding: 0;
+  font-size: 0;
+  transition: all 0.3s ease;
+}
+
+.recent-posts-slider .slick-dots li button:before {
+  display: none;
+}
+
+.recent-posts-slider .slick-dots li.slick-active button {
+  background: var(--accent-color);
+  transform: scale(1.2);
+}
+
+/* No Posts Message */
+.no-posts-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .slider-arrow {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .slider-arrow-prev {
+    left: -20px;
+  }
+  
+  .slider-arrow-next {
+    right: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recent-posts {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .recent-posts-slider {
+    margin: 0 -10px;
+  }
+  
+  .slider-item {
+    padding: 0 10px;
+  }
+  
+  .recent-post-content {
+    padding: 1.25rem;
+  }
+  
+  .recent-post-image {
+    height: 180px;
+  }
+  
+  .recent-post-image-placeholder {
+    height: 180px;
+  }
+  
+  /* Hide arrows on mobile */
+  .slider-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .recent-posts {
+    padding: 2.5rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .recent-post-content {
+    padding: 1rem;
+  }
+  
+  .recent-post-image {
+    height: 160px;
+  }
+  
+  .recent-post-image-placeholder {
+    height: 160px;
+  }
+  
+  .recent-post-title {
+    font-size: 1.1rem;
+  }
+  
+  .recent-post-excerpt {
+    font-size: 0.9rem;
+  }
+}
