@@ -146,7 +146,7 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', 
-    default='http://localhost:5173,http://localhost:5174,https://subtle-blini-446f27.netlify.app,https://blogbackc-ch.onrender.com',
+    default='http://localhost:5173,http://localhost:5174,multiblogapp.netlify.app,https://blogbackc-ch-l6i7.onrender.com',
     cast=Csv()
 )
 
@@ -157,8 +157,8 @@ CORS_PREFLIGHT_MAX_AGE = 86400  # 24 hours
 if not DEBUG:
     CORS_ALLOW_ALL_ORIGINS = False
     CORS_ALLOWED_ORIGINS = [
-        "https://subtle-blini-446f27.netlify.app",
-        "https://blogbackc-ch.onrender.com",
+        "multiblogapp.netlify.app",
+        "https://blogbackc-ch-l6i7.onrender.com",
     ]
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
